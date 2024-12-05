@@ -21,15 +21,17 @@ const userAge = Number(prompt("Inserisci la tua età"))
 const journeyLength = Number(prompt("Inserisci il numero di kilometri"))
 const priceKm = 0.21
 let price = journeyLength * priceKm
-
+let discount = 0
 if(userAge < 18) {
-  const discount = price * 0.2;
-  price = price - discount;
-}  console.log(price)
+  discount = price * 0.2;
+}
 else if(userAge > 65) {
-  const discount = price * 0.4;
-  price = price - discount;
-}  console.log(price)
-else {
-    alert("il costo del biglietto è:" price)
+  discount = price * 0.4;
+}
+
+price = price - discount;
+alert(`Il prezzo del biglietto è: ${price.toFixed(2)}€`);
+
+if(discount != 0) {
+    alert(`è stato applicato uno sconto di ${discount.toFixed(2)}€ in base alla tua età ${userAge}`)
 }
